@@ -471,7 +471,7 @@ PRIVATE LMETHOD lmt[] = {
  *---------------------------------------------*/
 PRIVATE GCLASS _gclass = {
     0,  // base
-    GCLASS_WATCHFS_NAME,      // CHANGE WITH each gclass
+    GCLASS_WATCHFS_NAME,
     &fsm,
     {
         mt_create,
