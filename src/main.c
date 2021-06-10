@@ -51,7 +51,7 @@ PRIVATE char variable_config[]= "\
             'to_file': {                                            \n\
                 'handler_type': 'file',                             \n\
                 'handler_options': 255,                             \n\
-                'filename_mask': 'watchfs-MM-DD.log'                \n\
+                'filename_mask': 'watchfs-W.log'                \n\
             },                                                      \n\
             'to_udp': {                                             \n\
                 'handler_type': 'udp',                              \n\
