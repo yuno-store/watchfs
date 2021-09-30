@@ -69,6 +69,7 @@ TARGET_LINK_LIBRARIES(watchfs
     pthread dl  # used by libuv
     lzma        # used by libunwind
     uuid
+    m
 )
 
 ##############################################
