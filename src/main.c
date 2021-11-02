@@ -17,7 +17,7 @@
 #define APP_NAME        "watchfs"
 #define APP_DOC         "Execute a shell command when a file system event occurs"
 
-#define APP_VERSION     "4.20.6"
+#define APP_VERSION     "4.21.0"
 #define APP_DATETIME    __DATE__ " " __TIME__
 #define APP_SUPPORT     "<niyamaka at yuneta.io>"
 
