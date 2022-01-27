@@ -146,7 +146,6 @@ PRIVATE int mt_start(hgobj gobj)
         fprintf(stderr, "\nPath '%s' NO FOUND\n", path);
         exit(-1);
     }
-    chdir(path);
     log_info(0,
         "gobj",         "%s", gobj_short_name(gobj),
         "msgset",       "%s", MSGSET_MONITORING,
