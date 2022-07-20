@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <regex.h>
+#include <pcre2posix.h>
 #include "c_watchfs.h"
 
 /***************************************************************************
