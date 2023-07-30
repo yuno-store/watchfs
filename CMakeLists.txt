@@ -1,8 +1,8 @@
 ##############################################
 #   CMake
 ##############################################
-project(watchfs C)
 cmake_minimum_required(VERSION 3.0)
+project(watchfs C)
 include(CheckIncludeFiles)
 include(CheckSymbolExists)
 
