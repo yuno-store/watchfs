@@ -308,9 +308,11 @@ PRIVATE int ac_renamed(hgobj gobj, const char *event, json_t *kw, hgobj src)
     // TODO would be a launcher for each modified filename
     //const char *path = kw_get_str(kw, "path", "");
     const char *filename = kw_get_str(kw, "filename", "", 0);
+    const char *path = kw_get_str(kw, "path", "", 0);
     PRIVATE_DATA *priv = gobj_priv_data(gobj);
 
-    if(priv->ignore_renamed_event) {
+    if(strstr(path, "/_build/")) { // 2024-Mar-07 FIX to avoid sphinx re-make all time
+        // TODO set a new parameter: ignore_path
         JSON_DECREF(kw);
         return 0;
     }
@@ -342,7 +344,9 @@ PRIVATE int ac_renamed(hgobj gobj, const char *event, json_t *kw, hgobj src)
         }
         //exec_command(gobj, path, filename);
         if(priv->time2exec == 0) {
-            priv->time2exec = start_msectimer(400);
+            priv->time2exec = start_msectimer(500);
+        } else {
+            priv->time2exec = start_msectimer(200);
         }
     }
 
@@ -358,12 +362,20 @@ PRIVATE int ac_changed(hgobj gobj, const char *event, json_t *kw, hgobj src)
     // TODO would be a launcher for each modified filename
     //const char *path = kw_get_str(kw, "path", "", FALSE);
     const char *filename = kw_get_str(kw, "filename", "", 0);
+    const char *path = kw_get_str(kw, "path", "", 0);
     PRIVATE_DATA *priv = gobj_priv_data(gobj);
+
+    if(strstr(path, "/_build/")) { // 2024-Mar-07 FIX to avoid sphinx re-make all time
+        // TODO set a new parameter: ignore_path
+        JSON_DECREF(kw);
+        return 0;
+    }
 
     if(priv->ignore_changed_event) {
         JSON_DECREF(kw);
         return 0;
     }
+
 
     BOOL matched = FALSE;
     for(int i=0; i<priv->npatterns; i++) {
@@ -392,7 +404,9 @@ PRIVATE int ac_changed(hgobj gobj, const char *event, json_t *kw, hgobj src)
         }
         //exec_command(gobj, path, filename);
         if(priv->time2exec == 0) {
-            priv->time2exec = start_msectimer(400);
+            priv->time2exec = start_msectimer(500);
+        } else {
+            priv->time2exec = start_msectimer(200);
         }
     }
     JSON_DECREF(kw);
